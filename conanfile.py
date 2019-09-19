@@ -18,27 +18,27 @@ class DirectShowBaseClassesConan(ConanFile):
     exports_sources = ["CMakeLists.txt"]
     generators = "cmake"
     settings = {"os": ["Windows"], "arch": ["x86", "x86_64"], "compiler": None, "build_type": None}
-    source_subfolder = "source_subfolder"
-    build_subfolder = "build_subfolder"
+    _source_subfolder = "source_subfolder"
+    _build_subfolder = "build_subfolder"
     short_paths = True
 
     def source(self):
         source_url = "https://github.com/Microsoft/Windows-classic-samples/archive/master.zip"
         tools.get(source_url)
-        os.rename('Windows-classic-samples-master', self.source_subfolder)
+        os.rename('Windows-classic-samples-master', self._source_subfolder)
 
-    def configure_cmake(self):
+    def _configure_cmake(self):
         cmake = CMake(self)
-        cmake.configure(build_folder=self.build_subfolder)
+        cmake.configure(build_folder=self._build_subfolder)
         return cmake
 
     def build(self):
-        cmake = self.configure_cmake()
+        cmake = self._configure_cmake()
         cmake.build()
 
     def package(self):
-        self.copy(pattern="LICENSE", dst="licenses", src=self.source_subfolder)
-        cmake = self.configure_cmake()
+        self.copy(pattern="LICENSE", dst="licenses", src=self._source_subfolder)
+        cmake = self._configure_cmake()
         cmake.install()
 
     def package_info(self):
