@@ -9,7 +9,6 @@ class DirectShowBaseClassesConan(ConanFile):
                   "implementing DirectShow filters"
     url = "https://github.com/bincrafters/conan-directshowbaseclasses"
     homepage = "https://docs.microsoft.com/en-us/windows/desktop/directshow/directshow-base-classes"
-    author = "Bincrafters <bincrafters@gmail.com>"
     license = "MIT"
     exports = ["LICENSE.md"]
     exports_sources = ["CMakeLists.txt"]
