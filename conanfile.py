@@ -10,7 +10,6 @@ class DirectShowBaseClassesConan(ConanFile):
     url = "https://github.com/bincrafters/conan-directshowbaseclasses"
     homepage = "https://docs.microsoft.com/en-us/windows/desktop/directshow/directshow-base-classes"
     license = "MIT"
-    exports = ["LICENSE.md"]
     exports_sources = ["CMakeLists.txt"]
     generators = "cmake"
     settings = {"os": ["Windows"], "arch": ["x86", "x86_64"], "compiler": None, "build_type": None}
